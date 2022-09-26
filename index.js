@@ -6,6 +6,7 @@ app.use(express.json())
 const customerRoute = require('./routes/customer')
 const cors =require('cors')
 const uri = process.env.DB_URL;
+const port = process.env.PORT || 8000
 
 app.use(cors())
 
@@ -26,6 +27,6 @@ mongoose.connect(uri, {
 app.use('/',customerRoute)
 
 
-app.listen(process.env.PORT || 8000, () => {
+app.listen(port, () => {
     console.log("running on port 80 ")
 })
