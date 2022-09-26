@@ -5,13 +5,14 @@ const mongoose = require('mongoose')
 app.use(express.json())
 const customerRoute = require('./routes/customer')
 const cors =require('cors')
+const uri = process.env.DB_URL;
 
 app.use(cors())
 
 
 
 // mongodb atlas connection 
-mongoose.connect(process.env.DB_URL, {
+mongoose.connect(uri, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }).then(() => {
